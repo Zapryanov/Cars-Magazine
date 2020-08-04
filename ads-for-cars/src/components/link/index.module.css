@@ -1,0 +1,23 @@
+.listItem {
+    display: inline-block;
+    margin: 5vh 1%;
+    cursor: pointer;
+    padding: 10px;
+    vertical-align: top;
+    background-color: green;
+    border-radius: 10%;
+}
+
+.listItem:hover {
+    background-color: #ada9a9;
+    border: 1px solid green;
+    box-shadow: 4px 4px 10px red;
+}
+
+.listItem:hover .colorLink {
+    color: red;
+}
+
+.colorLink {
+    color: white
+}
