@@ -6,22 +6,28 @@ const Aside = () => {
     return (
         <aside>
             <div className={styles.eachSort}>
-                <p>
-                    Sort cars by price: descending-order
+                <p className={styles.paragraphMargin}>
+                    Sort cars by price:
                 </p>
-                <button>Sort</button>
+                <p className={`${styles.textIndent} ${styles.paragraphMargin}`}>
+                     - descending-order
+                </p>
+                <button className={styles.btn}>Sort</button>
             </div>
             <div className={styles.eachSort}>
-                <p>
-                     Sort cars by price: ascending-order
+                <p className={styles.paragraphMargin}>
+                    Sort cars by price:
                 </p>
-                <button>Sort</button>
+                <p className={`${styles.textIndent} ${styles.paragraphMargin}`}>
+                    - ascending-order
+                </p>
+                <button className={styles.btn}>Sort</button>
             </div>
             <div className={styles.eachSort}>
-                <p>
+                <p className={styles.paragraphMargin}>
                     Sort by last added
                 </p>
-                <button>Sort</button>
+                <button className={styles.btn}>Sort</button>
             </div>
         </aside>
     )

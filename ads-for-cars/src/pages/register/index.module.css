@@ -1,0 +1,10 @@
+.center {
+    margin: 10px 0;
+    text-align: center;
+}
+
+.errorMsg {
+    color: rgb(158, 29, 29);
+    text-align: center;
+    text-shadow: 1px 2px grey;
+}

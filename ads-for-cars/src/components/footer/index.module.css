@@ -1,0 +1,30 @@
+/* @import url('https://fonts.googleapis.com/css?family=Montserrat:900i&display=swap'); */
+
+.footer {
+    /* font-family: 'Montserrat', sans-serif; */
+    background-image: linear-gradient(#663300, #cc661d);
+    border: 1px solid red;
+    text-align: center;
+    padding: 1%;
+}
+
+  .threeD {
+    color: darkgrey;
+    white-space: nowrap;
+    font-size: 1em;
+    font-family: sans-serif;
+    letter-spacing: 0.1em;
+    transition: 0.3s;
+    text-align: center;
+    text-shadow: 1px 1px 0 grey, 1px 2px 0 grey, 1px 3px 0 grey, 1px 4px 0 grey,
+      1px 0px 0 grey, 1px 2px 0 grey, 1px 3px 0 grey, 1px 3px 0 grey,
+      2px 3px 5px black;
+  }
+  
+  .threeD:hover {
+    transition: 0.3s;
+    /* transform: scale(1); */
+    text-shadow: 1px -1px 0 grey, 1px -2px 0 grey, 1px -3px 0 grey,
+      1px -4px 0 grey, 1px -4px 0 grey, 1px -4px 0 grey, 1px -4px 0 grey,
+      1px -4px 0 grey, 5px -3px 5px black, 5px -3px 2px #808080;
+  }

@@ -1,0 +1,45 @@
+.container {
+    display: inline-block;
+    margin: 0 0.33%;
+    width: 32%;
+    box-sizing: border-box;
+    border: 1px solid red;
+}
+
+.img {
+    background-image: url("../../public/Audi_RS6.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 45vh;
+}
+
+.description {
+    padding: 10px;
+    background-image: linear-gradient(#cff1dc, #76e7a1, #1bdb65);
+}
+
+.btn {
+    background-color: firebrick;
+    border-radius: 10px;
+    border: 2px solid gray;
+    box-shadow:  1px 4px 0 grey, 2px 3px 5px black, 5px 3px 2px #808080;
+    text-shadow: 1px 2px 0 grey, 2px 3px 1px  black, 3px 4px 2px #808080;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 4px 10px;
+}
+
+.btn:hover {
+    background-color: firebrick;
+    box-shadow: 1px -4px 0 grey, 2px -3px 5px black, 5px -3px 2px #808080;
+    text-shadow: 1px -2px 0 grey, 2px -3px 4px black, 5px -3px 2px #808080;
+
+    color: white;
+}
