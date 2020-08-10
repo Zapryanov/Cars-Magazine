@@ -19,8 +19,6 @@ class Logout extends React.Component {
 
     render() {
         
-        console.log("Context from page LOGOUT: ", this.context);
-
         return (
             <PageLayout>
                 <div className={styles.textLoading}>Loading...</div>

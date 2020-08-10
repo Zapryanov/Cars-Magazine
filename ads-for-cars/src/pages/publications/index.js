@@ -40,7 +40,6 @@ class Publications extends Component {
   }
 
   render() {
-    console.log(this.context)
     return (
       <PageLayout>
         <Title title="Cars" />

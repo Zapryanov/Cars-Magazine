@@ -1,6 +1,6 @@
 .container {
     display: inline-block;
-    margin: 0 0.33%;
+    margin: 0.33%;
     width: 32%;
     box-sizing: border-box;
     border: 1px solid red;

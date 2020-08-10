@@ -1,8 +1,5 @@
-/* @import url('https://fonts.googleapis.com/css?family=Montserrat:900i&display=swap'); */
-
 .footer {
-    /* font-family: 'Montserrat', sans-serif; */
-    background-image: linear-gradient(#663300, #cc661d);
+    background-image: linear-gradient(#cc661d, #663300);
     border: 1px solid red;
     text-align: center;
     padding: 1%;

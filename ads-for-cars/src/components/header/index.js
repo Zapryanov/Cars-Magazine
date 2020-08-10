@@ -13,6 +13,8 @@ class Header extends Component {
     render() {
         const { loggedIn, user } = this.context;
 
+        const consumer = loggedIn ? user.username : "Guest"
+
         const links = getNavigation(loggedIn, user && user.id);
     
         return (
@@ -34,10 +36,7 @@ class Header extends Component {
                     </div>
                     <div className={styles.wrapTextUser}>
                         <p className={styles.controlText}>
-                            To advertise your car:
-                        </p>
-                        <p className={styles.controlText}>
-                            please log in!
+                            User: {consumer}
                         </p>
                     </div>
                 </div>

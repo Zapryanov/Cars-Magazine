@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import UserContext from "./Context";
+import styles from "./app.module.css";
 
 class App extends Component {
     constructor(props) {
@@ -38,9 +39,7 @@ class App extends Component {
     }
 
     componentDidMount() {
-
         const token = this.getCookie("x-auth-token");
-        console.log("Token : ", token)
 
         if (!token) {
             this.logOut();
@@ -49,15 +48,11 @@ class App extends Component {
 
         fetch("http://localhost:9999/api/user/verify", {
             method: "GET",
-            // body: JSON.stringify({
-            //     token
-            // }),
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": token
             }
         }).then(promise => {
-            console.log(promise);
             return promise.json();
         }).then(response => {
             if (response.status) {
@@ -73,6 +68,17 @@ class App extends Component {
 
     render() {
         const { loggedIn, user } = this.state;
+
+        if (loggedIn === null) {
+            return (
+                <div className={styles.container}>
+                    <div className={styles.wrapLoading}>
+                        <div className={styles.loading}></div>
+                        <p className={styles.textLoading}>Loading.....</p>
+                    </div>
+                </div>
+            )
+        }
 
         return (
             <UserContext.Provider value={{

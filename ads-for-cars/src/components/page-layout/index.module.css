@@ -33,7 +33,7 @@ a {
 .main {
     display: inline-block;
     width: 85%;
-    height: 89vh;
+    height: auto;
     margin: 0 0 5% 15%;
     padding: 1%;
     box-sizing: border-box;
