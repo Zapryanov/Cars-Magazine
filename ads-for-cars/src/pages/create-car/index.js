@@ -66,6 +66,10 @@ class CreateCar extends Component {
             console.log("Error from React: ", err);
         }
     }
+
+    handleUpoad = (e) => {
+        e.preventDefault()
+    }
     openWidget = () => {
     
         const widget = window.cloudinary.createUploadWidget(
@@ -74,16 +78,11 @@ class CreateCar extends Component {
                 uploadPreset: 'softuni-1',
             },
             (error, result) => {
-                console.log("Result: ", result);
                 if (result.event === 'success') {
                     this.setState({
                         imageUrl: result.info.url
                     })
-                    console.log("ImageUrl from state: ", this.state.imageUrl)
-                } else {
-                    console.log("Error from Widget: ", error);
                 }
-                
             },
         );
         widget.open();
@@ -96,8 +95,10 @@ class CreateCar extends Component {
             <PageLayout>
                 <Title title="Create an Add" />
                 <div className={styles.container}>
-                    <form>
-                        <button type="button" onClick={this.openWidget}>Upload Via Widget</button>
+                    <form onSubmit={this.handleUpoad}>
+                        <p>
+                            <SubmitButton title="Upoad Image" onClick={this.openWidget} />
+                        </p>
                     </form>
                     <form onSubmit={this.postCar}>
                         <div>

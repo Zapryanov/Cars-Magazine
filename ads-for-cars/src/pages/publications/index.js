@@ -28,6 +28,24 @@ class Publications extends Component {
   renderCars = () => {
     const { cars } = this.state;
 
+    if (cars.length === 0) {
+      return (
+        <div className={styles.wrapEmpty}>
+          <div className={styles.wrapText}>
+            <p>
+              <span className={styles.brown}>No more ads. All cars are sold.</span>
+            </p>
+            <p>
+              If you want to sell your car, please upload your ad!
+            </p>
+            <p>
+              If you are not a registered user, you must first register!
+            </p>
+          </div>
+        </div>
+      )
+    }
+
     return cars.map((car) => {
       return (
         <Car key={car._id} {...car} />
