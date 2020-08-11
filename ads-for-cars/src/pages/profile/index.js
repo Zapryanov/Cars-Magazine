@@ -21,13 +21,11 @@ class ProfilePage extends Component {
 
     getUser = async (id) => {
         const response = await fetch(`http://localhost:9999/api/user?id=${id}`);
-        console.log("Response: ", response);
 
         if (!response.ok) {
             this.props.history.push("/error")
         }
         const user = await response.json();
-        console.log("User: ", user)
 
         this.setState({
             username: user.username,
