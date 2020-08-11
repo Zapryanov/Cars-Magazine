@@ -55,9 +55,6 @@ class CreateCar extends Component {
                     contact
                 })
             })
-            debugger
-            // const authToken = promise.headers.get("Authorization");
-            // document.cookie = `x-auth-token=${authToken}`;
             const response = await promise.json();
 
             if (response.description && response.price && response.contact) {
