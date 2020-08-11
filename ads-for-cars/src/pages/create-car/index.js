@@ -18,7 +18,8 @@ class CreateCar extends Component {
         this.state = {
             description: "",
             price: "",
-            contact: ""
+            contact: "",
+            imageUrl: ""
         }
     }
 
@@ -26,7 +27,7 @@ class CreateCar extends Component {
 
     handleTextarea = (event) => {
         this.setState({
-            description: event.target.value 
+            description: event.target.value
         })
     }
 
@@ -39,7 +40,7 @@ class CreateCar extends Component {
     postCar = async (e) => {
         e.preventDefault();
 
-        const { description, price, contact } = this.state;
+        const { description, price, contact, imageUrl } = this.state;
         console.log(this.context)
         const token = getCookie("x-auth-token");
         try {
@@ -52,7 +53,8 @@ class CreateCar extends Component {
                 body: JSON.stringify({
                     description,
                     price,
-                    contact
+                    contact,
+                    imageUrl
                 })
             })
             const response = await promise.json();
@@ -64,31 +66,62 @@ class CreateCar extends Component {
             console.log("Error from React: ", err);
         }
     }
+    openWidget = () => {
+    
+        const widget = window.cloudinary.createUploadWidget(
+            {
+                cloudName: 'audipower',
+                uploadPreset: 'softuni-1',
+            },
+            (error, result) => {
+                console.log("Result: ", result);
+                if (result.event === 'success') {
+                    this.setState({
+                        imageUrl: result.info.url
+                    })
+                    console.log("ImageUrl from state: ", this.state.imageUrl)
+                } else {
+                    console.log("Error from Widget: ", error);
+                }
+                
+            },
+        );
+        widget.open();
+    };
 
     render() {
-        const { description, price, contact } = this.state;
+        const { description, price, contact, imageUrl } = this.state;
 
         return (
             <PageLayout>
                 <Title title="Create an Add" />
                 <div className={styles.container}>
+                    <form>
+                        <button type="button" onClick={this.openWidget}>Upload Via Widget</button>
+                    </form>
                     <form onSubmit={this.postCar}>
                         <div>
                             <textarea value={description} onChange={this.handleTextarea} />
                         </div>
-                        <Input 
-                            id="price" 
-                            label="Price" 
-                            value={price} 
-                            onChange={(e) => this.handlePrice(e, "price")} 
+                        <Input
+                            id="price"
+                            label="Price"
+                            value={price}
+                            onChange={(e) => this.handlePrice(e, "price")}
                         />
-                        <Input 
-                            id="contact" 
-                            label="Contact" 
-                            value={contact} 
-                            onChange={(e) => this.handlePrice(e, "contact")} 
+                        <Input
+                            id="contact"
+                            label="Contact"
+                            value={contact}
+                            onChange={(e) => this.handlePrice(e, "contact")}
                         />
-                        <SubmitButton title="Create"/>
+                        <Input
+                            id="photo"
+                            label="Photo"
+                            value={imageUrl}
+                            onChange={(e) => this.handlePrice(e, "imageUrl")}
+                        />
+                        <SubmitButton title="Create" />
                     </form>
                 </div>
             </PageLayout>

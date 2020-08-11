@@ -2,10 +2,10 @@ import React from "react";
 import styles from "./index.module.css";
 import SubmitButton from "../button/submit-button";
 
-const Car = ({ description, price, author }) => {
+const Car = ({ description, price, imageUrl, author }) => {
     return (
         <div className={styles.container}>
-            <div className={styles.img}></div>
+            <img className={styles.img} src={imageUrl} alt="car"/>
             <div className={styles.description}>
                 <p>
                     {`${description.slice(0, 30)}..........`}

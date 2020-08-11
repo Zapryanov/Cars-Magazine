@@ -20,6 +20,10 @@ const carsSchema = new Schema({
         required: true
     },
 
+    imageUrl: {
+        type: String
+    },
+
     author: {
         type: ObjectId,
         ref: "User"

@@ -9,10 +9,10 @@ module.exports = {
     },
 
     post: (req, res, next) => {
-        const { description, price, contact } = req.body;
+        const { description, price, contact, imageUrl } = req.body;
         const { _id } = req.user;
 
-        models.Cars.create({ description, price, contact, author: _id })
+        models.Cars.create({ description, price, contact, imageUrl, author: _id })
             .then((createdCars) => {
                 return Promise.all([
                     models.User.updateOne({ _id }, { $push: { posts: createdCars } }),

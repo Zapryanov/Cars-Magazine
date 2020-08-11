@@ -2,12 +2,13 @@
     display: inline-block;
     margin: 0.33%;
     width: 32%;
+    background-image: linear-gradient(#b68d4c, lightgray);
     box-sizing: border-box;
-    border: 1px solid red;
+    border: 2px solid brown;
 }
 
 .img {
-    background-image: url("../../public/Audi_RS6.jpg");
+    /* background-image: url("../../public/car-logo-1.png"); */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
