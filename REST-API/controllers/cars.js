@@ -2,7 +2,7 @@ const models = require('../models');
 
 module.exports = {
     get: (req, res, next) => {
-        const carId = req.params.id;
+        const carId = req.query.id;
         models.Cars.find(carId ? { _id: carId } : {}).populate('author', '-password')
             .then((cars) => res.send(carId ? cars[0] : cars))
             .catch(next);

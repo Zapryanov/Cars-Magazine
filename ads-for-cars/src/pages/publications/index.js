@@ -58,6 +58,19 @@ class Publications extends Component {
   }
 
   render() {
+    const { cars } = this.state;
+
+    if (cars.length === 0) {
+      return (
+          <div className={styles.container}>
+              <div className={styles.wrapLoading}>
+                  <div className={styles.loading}></div>
+                  <p className={styles.textLoading}>Loading.....</p>
+              </div>
+          </div>
+      )
+  }
+
     return (
       <PageLayout>
         <Title title="Cars" />

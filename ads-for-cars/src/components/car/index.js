@@ -1,8 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styles from "./index.module.css";
-import SubmitButton from "../button/submit-button";
 
-const Car = ({ description, price, imageUrl, author }) => {
+const Car = ({ description, price, imageUrl, _id }) => {
     return (
         <div className={styles.container}>
             <img className={styles.img} src={imageUrl} alt="car"/>
@@ -14,7 +14,7 @@ const Car = ({ description, price, imageUrl, author }) => {
                     {`Price: €${price}`}
                 </p>
                 <p>
-                    <SubmitButton title="Details"/>
+                    <Link className={styles.btn} to={`/details/${_id}`}>Details</Link>
                 </p>
             </div>
         </div>

@@ -50,3 +50,41 @@ a {
 .brown {
   color: red;
 }
+
+.container {
+  background: #f3e2c7; /* Old browsers */
+  background: -moz-linear-gradient(top,  #f3e2c7 0%, #c19e67 50%, #b68d4c 100%, #e9d4b3 100%, #b68d4c 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  #f3e2c7 0%,#c19e67 50%,#b68d4c 100%,#e9d4b3 100%,#b68d4c 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  #f3e2c7 0%,#c19e67 50%,#b68d4c 100%,#e9d4b3 100%,#b68d4c 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  height: 100vh;
+  width: 100%;
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3e2c7', endColorstr='#b68d4c',GradientType=0 ); /* IE6-9 */
+}
+
+.wrapLoading {
+  width: 182px;
+  margin: 0 auto;
+  padding-top: 20vh;
+}
+
+.loading {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  display: inline-block;
+  margin: 0 auto;
+  width: 150px;
+  height: 150px;
+  animation: spin 0.5s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
+}
+
+.textLoading {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center
+}

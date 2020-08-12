@@ -53,8 +53,8 @@ class LoginPage extends Component {
             const response = await promise.json();
 
             if (response.username && authToken) {
-                this.context.logIn(response.username);
-                this.context.id = response._id;
+                this.context.logIn({username: response.username, id: response._id});
+                // this.context.id = response._id;
                 this.props.history.push("/");
             }
         } catch (err) {

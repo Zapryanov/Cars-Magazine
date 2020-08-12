@@ -13,7 +13,8 @@ class Header extends Component {
     render() {
         const { loggedIn, user } = this.context;
 
-        const consumer = loggedIn ? user.username : "Guest"
+        const consumer = loggedIn ? user.username : "Guest";
+        // console.log(consumer)
 
         const links = getNavigation(loggedIn, user && user.id);
     

@@ -13,6 +13,7 @@ import ErrorPage from "./pages/error";
 import Logout from "./pages/logout";
 import AboutPage from "./pages/about";
 import ContactsPage from "./pages/contact";
+import DetailsPage from "./pages/details-page";
 
 const Navigation = () => {
 
@@ -27,6 +28,7 @@ const Navigation = () => {
                 <Route path="/about" component={AboutPage} />
                 <Route path="/contact" component={ContactsPage} />
                 <Route path="/profile/:userId" component={ProfilePage} />
+                <Route path="/details/:imgId" component={DetailsPage} />
                 <Route component={ErrorPage} />
             </Switch>
         </BrowserRouter>
