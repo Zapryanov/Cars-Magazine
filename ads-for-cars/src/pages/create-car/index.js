@@ -5,6 +5,7 @@ import Title from "../../components/title";
 import SubmitButton from "../../components/button/submit-button";
 import Input from "../../components/input";
 import UserContext from "../../Context";
+import defaultImage from "../../public/car-logo-1.png";
 
 function getCookie(name) {
     var v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
@@ -54,7 +55,7 @@ class CreateCar extends Component {
                     description,
                     price,
                     contact,
-                    imageUrl
+                    imageUrl: imageUrl || defaultImage 
                 })
             })
             const response = await promise.json();

@@ -20,7 +20,8 @@
 }
 
 .textDiv {
-    font-family: times, Times New Roman, times-roman, georgia, serif;
+    font-family: 'Lemonada', cursive;
+    font-size: 13px;
     margin: 20px;
     padding: 5px;
     background-image: linear-gradient(#dcdcdc, #c0c0c0);
@@ -30,15 +31,16 @@
 
 .textDiv:hover {
     background-image: linear-gradient(#c0c0c0, #dcdcdc);
-}
-
-.boldText {
-    font-size: 20px;
     font-weight: bold;
 }
 
+.boldText {
+    font-size: 18px;
+    font-family: 'Eczar', serif;
+}
+
 .price {
-    
+    font-family: 'Space Mono', monospace;
 }
 
 .wrapButtons {

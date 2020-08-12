@@ -27,16 +27,20 @@ module.exports = {
 
     put: (req, res, next) => {
         const id = req.params.id;
-        const { description } = req.body;
-        models.Cars.updateOne({ _id: id }, { description })
+        const { description, price, contact, imageUrl  } = req.body;
+        models.Cars.updateOne({ _id: id }, { description, price, contact, imageUrl })
             .then((updatedCars) => res.send(updatedCars))
             .catch(next)
     },
 
     delete: (req, res, next) => {
         const id = req.params.id;
-        models.Cars.deleteOne({ _id: id })
-            .then((removedCars) => res.send(removedCars))
+        const userId = req.user._id;
+        Promise.all([
+            models.Cars.deleteOne({ _id: id }),
+            models.User.updateOne({ _id: userId }, { $pull: { posts: id } })
+        ])
+            .then(([removedCars, updatedUser]) => res.send(removedCars))
             .catch(next)
     }
 };
