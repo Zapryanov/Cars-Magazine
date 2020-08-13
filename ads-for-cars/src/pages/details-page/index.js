@@ -60,7 +60,6 @@ class DetailsPage extends Component {
         } else {
             console.log(response)
         }
-
     }
 
     render() {
@@ -73,7 +72,7 @@ class DetailsPage extends Component {
             author
         } = this.state;
 
-        const isCreator = author._id === this.context.user.id;
+        const isCreator = author._id === this.context.user && this.context.user.id;
 
         return (
             <PageLayout>
