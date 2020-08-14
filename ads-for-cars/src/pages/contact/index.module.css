@@ -10,3 +10,8 @@
     text-align: justify;
     text-indent: 30px;
 }
+
+.map{
+    height: 70vh;
+    width: 100%;
+}
