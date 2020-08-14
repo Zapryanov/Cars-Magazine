@@ -5,6 +5,7 @@ import Title from "../../components/title";
 import Input from "../../components/input";
 import SubmitButton from "../../components/button/submit-button";
 import UserContext from "../../Context";
+import { withRouter, Link } from 'react-router-dom'
 
 class RegisterPage extends Component {
     constructor(props) {
@@ -61,8 +62,10 @@ class RegisterPage extends Component {
             const response = await promise.json();
 
             if (response.username && authToken) {
-                this.context.logIn(response.username);
-                this.context.id = response._id;
+
+                this.context.logIn({ username: response.username, id: response._id });
+                // this.context.logIn(response.username);
+                // this.context.id = response._id;
                 this.props.history.push("/");
             }
         } catch (err) {
@@ -100,6 +103,10 @@ class RegisterPage extends Component {
                     />
                     <div className={styles.errorMsg}>{this.state.errorPasswords}</div>
                     <div className={styles.center}>
+                        <div>
+                            <span className={styles.styleTextInfo}>If you have already account, then just go to </span>
+                            <Link to="/login" className={styles.styleRegister}>Login</Link>  
+                        </div>
                         <SubmitButton title="Register" />
                     </div>
                 </form>
@@ -109,4 +116,4 @@ class RegisterPage extends Component {
 
 }
 
-export default RegisterPage;
+export default withRouter(RegisterPage);

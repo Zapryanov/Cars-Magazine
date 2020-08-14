@@ -1,0 +1,12 @@
+.container {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.text {
+    padding-top: 5vh;
+    font-family: 'Lemonada', cursive;
+    line-height: 2;
+    text-align: justify;
+    text-indent: 30px;
+}

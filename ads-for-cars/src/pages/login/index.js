@@ -5,6 +5,7 @@ import Title from "../../components/title";
 import Input from "../../components/input";
 import SubmitButton from "../../components/button/submit-button";
 import UserContext from "../../Context";
+import { Link, withRouter } from "react-router-dom";
 
 
 class LoginPage extends Component {
@@ -86,6 +87,10 @@ class LoginPage extends Component {
                         onChange={(e) => this.handleChange(e, "password")}
                     />
                     <div className={styles.center}>
+                        <div>
+                            <span className={styles.styleTextInfo}>If you haven't account, then just go to </span>
+                            <Link to="/register" className={styles.styleLogin}>Register</Link>
+                        </div>
                         <SubmitButton title="Login" />
                     </div>
                     <p className={styles.errorMsg}>{this.state.errorMsg}</p>
@@ -96,4 +101,4 @@ class LoginPage extends Component {
 
 }
 
-export default LoginPage;
+export default withRouter(LoginPage);

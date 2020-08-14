@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import UserContext from "../../Context";
 import PageLayout from "../../components/page-layout";
 import styles from "./index.module.css";
+import Title from "../../components/title";
+import { Link, withRouter } from "react-router-dom";
 
 function getCookie(name) {
     var v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
@@ -76,6 +78,7 @@ class DetailsPage extends Component {
 
         return (
             <PageLayout>
+                <Title title="Details Page" />
                 <div className={styles.containerPage}>
                     <div className={styles.wrapImage}>
                         <img src={imageUrl} alt="car" className={styles.img} />
@@ -94,7 +97,7 @@ class DetailsPage extends Component {
                         <div>{isCreator ?
                             <p className={styles.wrapButtons}>
                                 <button className={styles.btn} onClick={(e) => this.deleteAd(e)}>Delete</button>
-                                <button className={styles.btn}>Edit</button>
+                                <Link to={`/edit/${this.props.match.params.imgId}`} className={styles.btn}>Edit</Link>
                             </p>
                             : null
                         }</div>
@@ -105,6 +108,6 @@ class DetailsPage extends Component {
     }
 }
 
-export default DetailsPage;
+export default withRouter(DetailsPage);
 
 //{ timestamps: true }

@@ -10,6 +10,7 @@ class Publications extends Component {
     super(props);
 
     this.state = {
+      isTrue: true,
       cars: []
     }
   }
@@ -20,6 +21,12 @@ class Publications extends Component {
     const promise = await fetch("http://localhost:9999/api/cars");
     const cars = await promise.json();
 
+    if (cars.length === 0) {
+      this.setState({
+        isTrue: false
+      })
+    }
+
     this.setState({
       cars
     })
@@ -27,24 +34,6 @@ class Publications extends Component {
 
   renderCars = () => {
     const { cars } = this.state;
-
-    if (cars.length === 0) {
-      return (
-        <div className={styles.wrapEmpty}>
-          <div className={styles.wrapText}>
-            <p>
-              <span className={styles.brown}>No more ads. All cars are sold.</span>
-            </p>
-            <p>
-              If you want to sell your car, please upload your ad!
-            </p>
-            <p>
-              If you are not a registered user, you must first register!
-            </p>
-          </div>
-        </div>
-      )
-    }
 
     return cars.map((car) => {
       return (
@@ -58,18 +47,31 @@ class Publications extends Component {
   }
 
   render() {
-    const { cars } = this.state;
+    const { isTrue } = this.state;
 
-    if (cars.length === 0) {
+    if (!isTrue) {
       return (
-          <div className={styles.container}>
-              <div className={styles.wrapLoading}>
-                  <div className={styles.loading}></div>
-                  <p className={styles.textLoading}>Loading.....</p>
-              </div>
+        <PageLayout>
+          <Title title="Cars" />
+          <div className={styles.wrapEmpty}>
+            <div className={styles.wrapText}>
+              <p>
+                <span className={styles.red}>No more ads. All cars are sold.</span>
+              </p>
+              <p>
+                If you want to sell your car, please <span className={styles.red}>Create</span> your ad!
+            </p>
+              <p>
+                If you are not a registered user, you must first register!
+            </p>
+            <p>
+                Or just login if you are already registered user.
+            </p>
+            </div>
           </div>
+        </PageLayout>
       )
-  }
+    }
 
     return (
       <PageLayout>

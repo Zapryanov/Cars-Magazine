@@ -1,5 +1,38 @@
-.loadingText {
+.container {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.shadowTitle {
+    text-align: center;
+    padding-top: 5vh;
     font-weight: bold;
-    font-size: 50px;
-    color: red;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 20px;
+    color: #121212;
+    text-align: center;
+    letter-spacing: 5px;
+    text-shadow: 0 2px 1px #747474, 
+        -1px 3px 1px #767676, 
+        -2px 5px 1px #787878, 
+        -3px 7px 1px #7a7a7a
+}
+
+.boldText {
+    font-size: 18px;
+    font-family: 'Eczar', serif;
+    color: rgb(141, 138, 138);
+}
+
+.price {
+    font-family: 'Space Mono', monospace;
+    text-align: center;
+    padding-top: 5vh;
+    font-weight: bold;
+    font-size: 20px;
+    color: #121212;
+    text-align: center;
+    letter-spacing: 5px;
+    text-shadow: 0 2px 1px #747474, 
+        -1px 3px 1px #767676
 }

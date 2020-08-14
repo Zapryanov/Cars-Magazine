@@ -6,3 +6,16 @@
     margin: 20px 30% 0 30%;
     width: 40%;
 }
+
+.text {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    animation: blinker 1s linear infinite;
+}
+  
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}

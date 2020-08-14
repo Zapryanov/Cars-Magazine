@@ -1,0 +1,32 @@
+.container {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.text {
+    padding-top: 5vh;
+    font-family: 'Lemonada', cursive;
+    line-height: 2;
+    text-align: justify;
+    text-indent: 30px;
+}
+
+.imgShowRoom {
+    width: 100%;
+    height: auto;
+}
+
+.link {
+    color: green;
+    font-size: 18px;
+    font-family: 'Eczar', serif;
+    border: 1px solid gray;
+    border-radius: 10px;
+    box-shadow: 1px 2px black;
+    padding: 0 3px;
+    text-shadow: 1px 2px red;
+}
+
+.link:hover {
+    background-color: #dcdcdc;
+}

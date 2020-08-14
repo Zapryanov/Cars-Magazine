@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import styles from "./index.module.css";
 import PageLayout from "../../components/page-layout";
-import Title from "../../components/title";
-import SubmitButton from "../../components/button/submit-button";
 import Input from "../../components/input";
+import styles from "../../pages/create-car/index.module.css";
+import Title from "../../components/title";
 import UserContext from "../../Context";
+import SubmitButton from "../../components/button/submit-button";
 import defaultImage from "../../public/car-logo-1.png";
 import { withRouter } from "react-router-dom";
 
@@ -13,15 +13,16 @@ function getCookie(name) {
     return v ? v[2] : null;
 }
 
-class CreateCar extends Component {
+class EditPage extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
             description: "",
-            price: "",
+            price: 0,
             contact: "",
-            imageUrl: ""
+            imageUrl: "",
+            author: ""
         }
     }
 
@@ -39,15 +40,36 @@ class CreateCar extends Component {
         this.setState(newState);
     }
 
+    componentDidMount() {
+        this.getCar(this.props.match.params.id);
+    }
+
+    getCar = async (id) => {
+        const response = await fetch(`http://localhost:9999/api/cars?id=${id}`);
+
+        if (!response.ok) {
+            console.log("Error from function GetCar in EditPage...!");
+            this.props.history.push("/error")
+        }
+
+        const car = await response.json();
+
+        this.setState({
+            ...car
+        })
+
+    }
+
     postCar = async (e) => {
         e.preventDefault();
 
-        const { description, price, contact, imageUrl } = this.state;
-        
+        const { description, price, contact, imageUrl, author } = this.state;
         const token = getCookie("x-auth-token");
+        const id = this.props.match.params.id;
+
         try {
-            const promise = await fetch("http://localhost:9999/api/cars", {
-                method: "POST",
+            const promise = await fetch(`http://localhost:9999/api/cars/${id}`, {
+                method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
                     "Authorization": token
@@ -56,24 +78,29 @@ class CreateCar extends Component {
                     description,
                     price,
                     contact,
-                    imageUrl: imageUrl || defaultImage 
+                    imageUrl: imageUrl || defaultImage,
+                    author
                 })
             })
-            const response = await promise.json();
-
-            if (response.description && response.price && response.contact) {
-                this.props.history.push("/");
-            }
-        } catch (err) {
-            console.log("Error from React: ", err);
-        }
-    }
-
-    handleUpoad = (e) => {
-        e.preventDefault()
-    }
-    openWidget = () => {
     
+            const response = await promise.json();
+    
+            if (response.ok === 1) {
+                this.props.history.push("/");
+            } else {
+                this.props.history.push("/error");
+            }
+            
+        } catch (err) {
+            console.log("Error: ", err);
+            this.props.history.push("/error");
+        }
+
+
+    }
+
+    openWidget = () => {
+
         const widget = window.cloudinary.createUploadWidget(
             {
                 cloudName: 'audipower',
@@ -90,19 +117,26 @@ class CreateCar extends Component {
         widget.open();
     };
 
+
     render() {
-        const { description, price, contact, imageUrl } = this.state;
+
+        const {
+            description,
+            price,
+            contact,
+            imageUrl,
+        } = this.state;
 
         return (
             <PageLayout>
-                <Title title="Create an Ad" />
+                <Title title="Edit Page" />
                 <div className={styles.container}>
                     <form onSubmit={this.handleUpoad}>
                         <p>
                             <SubmitButton title="Upoad Image" onClick={this.openWidget} />
                         </p>
                     </form>
-                    <form onSubmit={this.postCar}>
+                    <form onSubmit={(e) => this.postCar(e)}>
                         <div>
                             <textarea value={description} onChange={this.handleTextarea} />
                         </div>
@@ -124,12 +158,13 @@ class CreateCar extends Component {
                             value={imageUrl}
                             onChange={(e) => this.handlePrice(e, "imageUrl")}
                         />
-                        <SubmitButton title="Create" />
+                        <SubmitButton title="Update" />
                     </form>
                 </div>
+
             </PageLayout>
         )
     }
 }
 
-export default withRouter(CreateCar);
+export default withRouter(EditPage);

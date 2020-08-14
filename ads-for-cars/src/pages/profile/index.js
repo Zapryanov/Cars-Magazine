@@ -2,6 +2,9 @@ import React, { Component } from "react"
 import PageLayout from "../../components/page-layout";
 import styles from "./index.module.css";
 import UserContext from "../../Context";
+import Title from "../../components/title";
+import Car from "../../components/car";
+import { withRouter } from "react-router-dom";
 
 class ProfilePage extends Component {
     constructor(props) {
@@ -9,6 +12,7 @@ class ProfilePage extends Component {
 
         this.state = {
             username: null,
+            postsCount: 0,
             posts: null
         }
     }
@@ -29,32 +33,36 @@ class ProfilePage extends Component {
 
         this.setState({
             username: user.username,
-            posts: user.posts && user.posts.length
+            postsCount: user.posts && user.posts.length,
+            posts: user.posts
         })
     }
 
-    render() {
-        const { username, posts } = this.state;
 
-        if (!username) {
-            return (
-                <PageLayout>
-                    <div className={styles.loadingText}>Loading....</div>
-                </PageLayout>
-            )
-        }
+    render() {
+        const { username, postsCount, posts } = this.state;
+        const cars = posts && posts.map(car => <Car key={car._id} {...car} />);
 
         return (
             <PageLayout>
-                <div>
-                    <p>Profile</p>
-                    <p>user: {username}</p>
-                    <p>Posts: {posts}</p>
+                <Title title="Profile Page" />
+                <div className={styles.container}>
+                    <div>
+                        <p>
+                            <span className={styles.boldText}>User: </span>
+                            <span className={styles.shadowTitle}>{username}</span>
+                        </p>
+                        <p>
+                            <span className={styles.boldText}>Posts: </span>
+                            <span className={styles.price}>{postsCount}</span>
+                        </p>
+                    </div>
+                    {cars}
                 </div>
             </PageLayout>
         )
     }
 }
 
-export default ProfilePage
+export default withRouter(ProfilePage)
 
