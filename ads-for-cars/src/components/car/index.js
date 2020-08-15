@@ -6,15 +6,19 @@ const Car = ({ modelName, description, price, imageUrl, _id }) => {
     return (
         <div className={styles.container}>
             <img className={styles.img} src={imageUrl} alt="car"/>
-            <div className={styles.description}>
+            <div className={styles.descriptionContainer}>
                 <p>
-                    {`Model: ${modelName}`}
+                    <span className={styles.title}>Model: </span>
+                    <span className={styles.textDescription}>{modelName}</span>
                 </p>
                 <p>
-                    {`${description.slice(0, 30)}..........`}
+                    <span className={styles.title}>Description: </span>
+                    <span className={styles.textDescription}>{`${description.slice(0, 30)}..........`}</span>
                 </p>
                 <p>
-                    {`Price: €${price}`}
+                    <span className={styles.title}>Price: </span>
+                    <span>€ </span>
+                    <span className={styles.price}>{price}</span>
                 </p>
                 <p>
                     <Link className={styles.btn} to={`/details/${_id}`}>Details</Link>

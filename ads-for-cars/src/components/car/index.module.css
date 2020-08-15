@@ -8,7 +8,6 @@
 }
 
 .img {
-    /* background-image: url("../../public/car-logo-1.png"); */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -20,9 +19,22 @@
     height: 45vh;
 }
 
-.description {
+.descriptionContainer {
     padding: 10px;
     background-image: linear-gradient(#cff1dc, #76e7a1, #1bdb65);
+}
+
+.title {
+    /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
+    font-family: 'Eczar', serif;
+}
+
+.textDescription {
+    font-family: 'Lemonada', cursive;
+}
+
+.price {
+    font-family: 'Space Mono', monospace;
 }
 
 .btn {
