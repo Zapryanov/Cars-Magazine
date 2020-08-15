@@ -19,10 +19,11 @@ LoginPage and RegisterPage both has custom validation:
 The application have PUBLIC part and PRIVATE part.
 
 The Public part is:
+    At the top right of the header section, username is "Guest".
     The user can see all the ads and view the details, but CANNOT CREATE ads because the button to create an ad is NOT DISPLAYED. The buttons for Deleting and Editing even his ads are NOT DISPLAYED. He can only look.
 
 The Private part is:
-    When the user is logged in, he can create ads. He can look at all the ads again, but here the buttons for deleting and editing these ads, which only he has created, are already displayed.
+    When the user is logged in, the username appears on the page at the top right of the header section and he can create ads. He can look at all the ads again, but here the buttons for deleting and editing these ads, which only he has created, are already displayed.
     A button for the Profile page already appears, which shows how many ads there are and the ads themselves are displayed.
 
 Both - Public and Private parts has a this functionallity:
