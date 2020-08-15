@@ -1,35 +1,25 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 
-class Time extends Component {
+const Time = () => {
+    
+    const [time, setState] = useState("");
 
-    constructor(props) {
-        super(props)
-
-        this.state = {
-            time: ""
-        }
-    }
-
-    componentDidMount() {
-        this.handleTimer()
-    }
-
-    handleTimer = () => {
+    const handleTimer = () => {
         const currentdate = new Date();
         const datetime = "DATE: " + currentdate.getDate() + "/"
             + (currentdate.getMonth() + 1) + "/"
             + currentdate.getFullYear()
 
-        this.setState({
-            time: datetime
-        })
+        setState(datetime)
     }
 
-    render() {
-        return (
-            <div>{this.state.time}</div>
-        )
-    }
+    useEffect(() => {
+        handleTimer();
+    }, [])
+
+    return (
+        <div>{time}</div>
+    )
 }
 
 export default Time;
