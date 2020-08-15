@@ -39,3 +39,6 @@ The Private part is:
 
 Both - Public and Private parts has a this functionallity:
     If there are no existing ads at all, a page with a default photo is displayed with a caption inviting the user to log in or register if he is not registered and create an ad if he wants to sell a car.
+
+Creating Car Ad:
+    When creating a car, all fields are required except for the photo field. If no photo is added, the application adds a default one.
