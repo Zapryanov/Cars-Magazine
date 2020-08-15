@@ -1,35 +1,15 @@
 import React from "react";
 import styles from "./index.module.css";
+import SortingComponent from "../sorting-component";
 
-const Aside = () => {
+const Aside = ({sortAscending, sortDescending, sortAlphabetically}) => {
 
     return (
-        <aside>
-            <div className={styles.eachSort}>
-                <p className={styles.paragraphMargin}>
-                    Sort cars by price:
-                </p>
-                <p className={`${styles.textIndent} ${styles.paragraphMargin}`}>
-                     - descending-order
-                </p>
-                <button className={styles.btn}>Sort</button>
-            </div>
-            <div className={styles.eachSort}>
-                <p className={styles.paragraphMargin}>
-                    Sort cars by price:
-                </p>
-                <p className={`${styles.textIndent} ${styles.paragraphMargin}`}>
-                    - ascending-order
-                </p>
-                <button className={styles.btn}>Sort</button>
-            </div>
-            <div className={styles.eachSort}>
-                <p className={styles.paragraphMargin}>
-                    Sort by last added
-                </p>
-                <button className={styles.btn}>Sort</button>
-            </div>
-        </aside>
+        <div className={styles.aside}>
+            <SortingComponent titleSort="Sort cars by price:" bodySort="descending-order" sortFunction={sortDescending} />
+            <SortingComponent titleSort="Sort cars by price:" bodySort="ascending-order" sortFunction={sortAscending} />
+            <SortingComponent titleSort="Sort alphabetically:" bodySort="ascending-order" sortFunction={sortAlphabetically} />
+        </div>
     )
 }
 

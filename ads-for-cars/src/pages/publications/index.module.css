@@ -47,58 +47,7 @@ a {
   color: red;
 }
 
-/* Aside added---------------------------------*/
-
 .cars {
   width: 85%;
   margin-left: 15%;
-}
-
-aside {
-  display: inline-block;
-  width: 13%;
-  height: 89.5vh;
-  vertical-align: top;
-  text-shadow: 1px 2px 3px #663300;
-  position: fixed;
-}
-
-.eachSort {
-  background: #f3e2c7;
-  background: -moz-linear-gradient(top,  #f3e2c7 0%, #c19e67 50%, #b68d4c 100%, #e9d4b3 100%, #b68d4c 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(top,  #f3e2c7 0%,#c19e67 50%,#b68d4c 100%,#e9d4b3 100%,#b68d4c 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom,  #f3e2c7 0%,#c19e67 50%,#b68d4c 100%,#e9d4b3 100%,#b68d4c 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3e2c7', endColorstr='#b68d4c',GradientType=0 ); /* IE6-9 */
-  border-bottom: 2px solid brown;
-  border-top: 2px solid brown;
-  border-right: 2px dashed brown;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
-  margin-top: 8vh;
-  min-height: 90px;
-  padding: 10px 0;;
-  text-align: center;
-}
-
-.btn {
-  background-image: linear-gradient(#c31432, #cc0000, #660000);
-  border-radius: 10px;
-  border: 5px solid #660033;
-  color: wheat;
-  width: 40%;
-  height: 30px;
-}
-
-.btn:hover {
-  color: white;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.textIndent {
-  text-indent: 10%;
-}
-
-.paragraphMargin {
-  margin: 5%;
 }

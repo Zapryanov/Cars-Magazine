@@ -4,6 +4,7 @@ import styles from "./index.module.css";
 import Car from "../../components/car";
 import Title from "../../components/title";
 import UserContext from "../../Context";
+import Aside from "../../components/aside";
 
 class Publications extends Component {
   constructor(props) {
@@ -102,32 +103,11 @@ class Publications extends Component {
       <PageLayout>
         <Title title="Cars" />
         <div className={styles.carsWrapper}>
-          <aside>
-            <div className={styles.eachSort}>
-              <p className={styles.paragraphMargin}>
-                Sort cars by price:
-                </p>
-              <p className={`${styles.textIndent} ${styles.paragraphMargin}`}>
-                - descending-order
-                </p>
-              <button className={styles.btn} onClick={() => this.sortDescending()}>Sort</button>
-            </div>
-            <div className={styles.eachSort}>
-              <p className={styles.paragraphMargin}>
-                Sort cars by price:
-                </p>
-              <p className={`${styles.textIndent} ${styles.paragraphMargin}`}>
-                - ascending-order
-                </p>
-              <button className={styles.btn} onClick={this.sortAscending}>Sort</button>
-            </div>
-            <div className={styles.eachSort}>
-              <p className={styles.paragraphMargin}>
-                Sort alphabetically
-                </p>
-              <button className={styles.btn} onClick={this.sortAlphabetically}>Sort</button>
-            </div>
-          </aside>
+          <Aside
+            sortAlphabetically={this.sortAlphabetically}
+            sortAscending={this.sortAscending}
+            sortDescending={this.sortDescending}
+          />
           <div className={styles.cars}>
             {this.renderCars()}
           </div>
