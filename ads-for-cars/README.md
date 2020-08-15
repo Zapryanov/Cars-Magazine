@@ -42,3 +42,9 @@ Both - Public and Private parts has a this functionallity:
 
 Creating Car Ad:
     When creating a car, all fields are required except for the photo field. If no photo is added, the application adds a default one.
+
+Good User Interface:
+    - Loading spinner, when refresh the App and make request to database;
+    - Buttons "sort", "details", "edit", "delete" whit one CSS - effect
+    - Buttons in header with another CSS effect;
+    - Text in footer with hover effect - moving shadow
