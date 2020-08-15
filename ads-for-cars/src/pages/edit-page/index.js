@@ -101,6 +101,10 @@ class EditPage extends Component {
 
     }
 
+    handleUpoad = (e) => {
+        e.preventDefault()
+    }
+    
     openWidget = () => {
 
         const widget = window.cloudinary.createUploadWidget(
