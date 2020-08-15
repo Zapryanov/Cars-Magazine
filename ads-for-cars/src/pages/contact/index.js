@@ -19,8 +19,16 @@ const ContactsPage = () => {
         <PageLayout>
             <Title title="Contacts" />
             <div className={styles.container}>
-                <div>
-                    Some mobile phones, address and Google-Maps maybe...:)
+                <div className={styles.textContainer}>
+                    <div>
+                        <h2>CarMagazine.com</h2>
+                    </div>
+                    <div>
+                        <span className={styles.spanText}>Plovdiv 4000, str. "Osvobojdenie" №49</span>
+                        <span className={styles.spanText}>Telephone: 0898/135437</span> 
+                        <span className={styles.spanText}>Work time: 9:00 - 18:00 / without Sunday /</span> 
+                        <span className={styles.spanText}>e-mail: CarMagazine@gmail.com</span> 
+                    </div>
                 </div>
                 <div className={styles.map}>
                     <GoogleMapReact

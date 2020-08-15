@@ -1,5 +1,12 @@
 Car-Magazine is a SPA for advertizing car ads.
 
+Project setup:
+    In REST-API:
+        npm install
+    
+    In ads-for-cars:
+        npm install
+
 To start the application, in the console I use the command "npm start" 
     in both REST-APP and React App.
 
@@ -11,6 +18,7 @@ Generated with create-react-app and use:
 Usage of external API's:
     - Cloudinary ("Here store the pictures)
     - Google.Maps
+    - Google-Fonts (included in this App from Google)
 
 Usage of cloud storage:
     - Atlas (MongoDb) - (Here store all info about each car)
