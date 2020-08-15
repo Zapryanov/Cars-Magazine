@@ -42,10 +42,10 @@ a {
     font-family: 'Space Mono', monospace;
     position: fixed;
     top: 18vh;
-    left: 10px;
     background-color: lightgray;
     border: 1px solid gray;
-    border-radius: 10px;
-    box-shadow: 2px 2px 2px inset rgb(109, 107, 107);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 0px 1px 3px 1px inset rgb(109, 107, 107);
     padding: 3px;
 }
