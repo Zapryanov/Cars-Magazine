@@ -1,5 +1,8 @@
 Car-Magazine is a SPA for advertizing car ads.
 
+To start the application, in the console I use the command "npm start" 
+    in both REST-APP and React App.
+
 Generated with create-react-app and use:
     -"react": "^16.13.1",
     -"react-dom": "^16.13.1",
