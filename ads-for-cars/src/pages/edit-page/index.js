@@ -18,6 +18,7 @@ class EditPage extends Component {
         super(props);
 
         this.state = {
+            modelName: "",
             description: "",
             price: 0,
             contact: "",
@@ -63,7 +64,7 @@ class EditPage extends Component {
     postCar = async (e) => {
         e.preventDefault();
 
-        const { description, price, contact, imageUrl, author } = this.state;
+        const { modelName ,description, price, contact, imageUrl, author } = this.state;
         const token = getCookie("x-auth-token");
         const id = this.props.match.params.id;
 
@@ -75,6 +76,7 @@ class EditPage extends Component {
                     "Authorization": token
                 },
                 body: JSON.stringify({
+                    modelName,
                     description,
                     price,
                     contact,
@@ -121,6 +123,7 @@ class EditPage extends Component {
     render() {
 
         const {
+            modelName,
             description,
             price,
             contact,
@@ -140,6 +143,12 @@ class EditPage extends Component {
                         <div>
                             <textarea value={description} onChange={this.handleTextarea} />
                         </div>
+                        <Input
+                            id="modelName"
+                            label="Model"
+                            value={modelName}
+                            onChange={(e) => this.handlePrice(e, "modelName")}
+                        />
                         <Input
                             id="price"
                             label="Price"

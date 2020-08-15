@@ -2,11 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./index.module.css";
 
-const Car = ({ description, price, imageUrl, _id }) => {
+const Car = ({ modelName, description, price, imageUrl, _id }) => {
     return (
         <div className={styles.container}>
             <img className={styles.img} src={imageUrl} alt="car"/>
             <div className={styles.description}>
+                <p>
+                    {`Model: ${modelName}`}
+                </p>
                 <p>
                     {`${description.slice(0, 30)}..........`}
                 </p>

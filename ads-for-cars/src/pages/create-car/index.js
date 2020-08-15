@@ -18,6 +18,7 @@ class CreateCar extends Component {
         super(props);
 
         this.state = {
+            modelName: "",
             description: "",
             price: "",
             contact: "",
@@ -42,7 +43,7 @@ class CreateCar extends Component {
     postCar = async (e) => {
         e.preventDefault();
 
-        const { description, price, contact, imageUrl } = this.state;
+        const { modelName, description, price, contact, imageUrl } = this.state;
         
         const token = getCookie("x-auth-token");
         try {
@@ -53,6 +54,7 @@ class CreateCar extends Component {
                     "Authorization": token
                 },
                 body: JSON.stringify({
+                    modelName,
                     description,
                     price,
                     contact,
@@ -91,7 +93,7 @@ class CreateCar extends Component {
     };
 
     render() {
-        const { description, price, contact, imageUrl } = this.state;
+        const { modelName, description, price, contact, imageUrl } = this.state;
 
         return (
             <PageLayout>
@@ -106,6 +108,12 @@ class CreateCar extends Component {
                         <div>
                             <textarea value={description} onChange={this.handleTextarea} />
                         </div>
+                        <Input
+                            id="modelName"
+                            label="Model"
+                            value={modelName}
+                            onChange={(e) => this.handlePrice(e, "modelName")}
+                        />
                         <Input
                             id="price"
                             label="Price"

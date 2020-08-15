@@ -5,9 +5,14 @@ const { String, Number, Boolean, ObjectId } = Schema.Types;
 
 const carsSchema = new Schema({
 
+    modelName: {
+        type: String,
+        required: true
+    },
+
     description: {
         type: String,
-        required: true,
+        required: true
     },
 
     price: {
