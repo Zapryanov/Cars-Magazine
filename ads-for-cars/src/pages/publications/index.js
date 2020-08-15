@@ -38,8 +38,6 @@ class Publications extends Component {
     this.setState({
       cars: cars.sort((a, b) => b.price - a.price)
     })
-
-    console.log("Yes, DESCENDING is working")
   }
 
   sortAscending = () => {
@@ -50,17 +48,17 @@ class Publications extends Component {
     })
   }
 
-  sortNewest = () => {
+  sortAlphabetically = () => {
     const { cars } = this.state;
 
-    console.log("Yes, NEWEST is working")
+    this.setState({
+      cars: cars.sort((a, b) => a.modelName > b.modelName ? 1 : -1)
+    })
   }
 
 
   renderCars = () => {
     const { cars } = this.state;
-
-    console.log(cars)
 
     return cars.map((car) => {
       return (
@@ -127,7 +125,7 @@ class Publications extends Component {
               <p className={styles.paragraphMargin}>
                 Sort alphabetically
                 </p>
-              <button className={styles.btn} onClick={this.sortNewest}>Sort</button>
+              <button className={styles.btn} onClick={this.sortAlphabetically}>Sort</button>
             </div>
           </aside>
           <div className={styles.cars}>
