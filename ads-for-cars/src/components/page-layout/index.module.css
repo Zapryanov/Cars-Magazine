@@ -32,9 +32,11 @@ a {
 
 .main {
     display: inline-block;
-    width: 85%;
+    /* width: 85%; */
+    width: 100%;
     height: auto;
-    margin: 0 0 5% 15%;
-    padding: 1%;
+    /* margin: 0 0 5% 15%; */
+    margin: 0 auto;
+    /* padding: 1%; */
     box-sizing: border-box;
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from "../header"
 import styles from "./index.module.css";
-import Aside from '../aside';
+// import Aside from '../aside';
 import Footer from '../footer';
 
 function PageLayout(props) {
@@ -9,7 +9,7 @@ function PageLayout(props) {
     <div className={styles.App}>
       <Header />
       <div className={styles.container}>
-        <Aside />
+        {/* <Aside /> */}
         <div className={styles.main}>
             {props.children}
         </div>

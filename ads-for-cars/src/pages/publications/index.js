@@ -32,8 +32,35 @@ class Publications extends Component {
     })
   }
 
+  sortDescending = () => {
+    const { cars } = this.state;
+
+    this.setState({
+      cars: cars.sort((a, b) => b.price - a.price)
+    })
+
+    console.log("Yes, DESCENDING is working")
+  }
+
+  sortAscending = () => {
+    const { cars } = this.state;
+
+    this.setState({
+      cars: cars.sort((a, b) => a.price - b.price)
+    })
+  }
+
+  sortNewest = () => {
+    const { cars } = this.state;
+
+    console.log("Yes, NEWEST is working")
+  }
+
+
   renderCars = () => {
     const { cars } = this.state;
+
+    console.log(cars)
 
     return cars.map((car) => {
       return (
@@ -64,7 +91,7 @@ class Publications extends Component {
               <p>
                 If you are not a registered user, you must first register!
             </p>
-            <p>
+              <p>
                 Or just login if you are already registered user.
             </p>
             </div>
@@ -77,7 +104,35 @@ class Publications extends Component {
       <PageLayout>
         <Title title="Cars" />
         <div className={styles.carsWrapper}>
-          {this.renderCars()}
+          <aside>
+            <div className={styles.eachSort}>
+              <p className={styles.paragraphMargin}>
+                Sort cars by price:
+                </p>
+              <p className={`${styles.textIndent} ${styles.paragraphMargin}`}>
+                - descending-order
+                </p>
+              <button className={styles.btn} onClick={() => this.sortDescending()}>Sort</button>
+            </div>
+            <div className={styles.eachSort}>
+              <p className={styles.paragraphMargin}>
+                Sort cars by price:
+                </p>
+              <p className={`${styles.textIndent} ${styles.paragraphMargin}`}>
+                - ascending-order
+                </p>
+              <button className={styles.btn} onClick={this.sortAscending}>Sort</button>
+            </div>
+            <div className={styles.eachSort}>
+              <p className={styles.paragraphMargin}>
+                Sort alphabetically
+                </p>
+              <button className={styles.btn} onClick={this.sortNewest}>Sort</button>
+            </div>
+          </aside>
+          <div className={styles.cars}>
+            {this.renderCars()}
+          </div>
         </div>
       </PageLayout>
     )
