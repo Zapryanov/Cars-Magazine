@@ -109,5 +109,3 @@ class DetailsPage extends Component {
 }
 
 export default withRouter(DetailsPage);
-
-//{ timestamps: true }
